@@ -12,21 +12,42 @@ import java.util.*;
 public class taquilla 
 {
 
-entrada mientrada = new entrada();
+Queue <entrada> colacine = new LinkedList();
 
 
-public void menu()
+
+public void comprar()
 {
-    System.out.println("introduce cantidad de entradas");
-        
-    System.out.println("introduce edad");
+
+String pasocategoria;
+int preciopaso;
+int edad;
+
+for (int i=0;i<5;i++)
+{
+    Scanner read = new Scanner(System.in);
+    System.out.println("introducir edad");
+    edad = read.nextInt();
     
-    Queue <entrada> colacine = new LinkedList();
+    if (edad > 18) {preciopaso = 500;pasocategoria = "adultos";} 
+    else {preciopaso=300;pasocategoria = "niños";}
     
-    
-       
-    
+    entrada mientrada = new entrada(pasocategoria,preciopaso);
+                colacine.offer(mientrada);
 }
 
+
+}
+
+public void mostrarcola()
+
+{
+//for (int i=0;i<5;i++)
+//{
+System.out.println(colacine.peek().getPrecio());
+System.out.println(colacine.peek().getCategoria());
+        
+//}    
+}
 
 }

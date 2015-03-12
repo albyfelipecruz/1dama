@@ -13,26 +13,43 @@ public class entrada
 {
     
     double id;
-    boolean menores;
+    String categoria;
     int precio;
 
-public entrada()
+public entrada(String edad,int precio)
 {
     
     id = Math.random()*100;
-    boolean menores=false;
-    int precio=0;       
+    this.categoria=edad;
+    this.precio=precio;
+    
 
 }
+///////////////////////setters y getters////////////////////////////////
 
-    public void setMenores(boolean menores) {
-        this.menores = menores;
+    public double getId() {
+        return id;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setId(double id) {
+        this.id = id;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public void setPrecio(int precio) {
         this.precio = precio;
     }
-
 
 
 }
