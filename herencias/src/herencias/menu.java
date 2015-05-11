@@ -5,11 +5,12 @@
  */
 package herencias;
 import java.util.*;
+import java.io.*;
 /**
  *
  * @author alby
  */
-public class menu 
+public class menu implements Serializable
 
 {
 ArrayList<vehiculos> vehiculos = new ArrayList();
@@ -31,7 +32,8 @@ int opcion = 0;
         System.out.println("2 - Mostrar todos los vehiculos");
         System.out.println("3 - Mostrar motos");
         System.out.println("4 - Mostrar por matricula");
-        System.out.println("5 - Salir");
+        System.out.println("5 - guardar vehiculos");
+        System.out.println("6 - Salir");
         
         opcion = read.nextInt();
     
@@ -40,11 +42,13 @@ int opcion = 0;
         {
                 case 1 : agregar();
                     break;
-                case 2 : 
+                case 2 : mostrartodo();
                     break;
                 case 3 : 
                     break;
                 case 4 : 
+                    break;
+                case 5 : guardardatos();
                     break;
         }
     }
@@ -83,6 +87,8 @@ int opcion = 0;
                     break;
                 case 2 : camion();
                     break;
+                case 3 : moto();
+                    break;
          }
     }
 
@@ -91,7 +97,7 @@ int opcion = 0;
     
 }
 
-public void agregarmoto()
+public void moto()
 {
 
 Scanner read = new Scanner(System.in);
@@ -120,7 +126,7 @@ int opcion = 0;
          }
     }
 
-    while (opcion!=4);
+    while (opcion!=3);
     
     
 }
@@ -192,7 +198,8 @@ String propietario;
 String marca;
 String cilindrada;
 String precio;   
-String Plazas;
+String plazas;
+motoagua mimotodeagua;
 
 Scanner read = new Scanner(System.in);
 
@@ -207,6 +214,15 @@ System.out.println("matricula");
 
     System.out.println("precio");
         precio = read.next();
+        
+    System.out.println("cilindrada");
+        cilindrada = read.next();
+        
+    System.out.println("plazas");
+        plazas = read.next();
+        
+        vehiculos.add(mimotodeagua = new motoagua(matricula,propietario,marca,precio,cilindrada,plazas));
+        
 }
 
 public void motodetierra()
@@ -217,6 +233,7 @@ String marca;
 String cilindrada;
 String precio;
 String tipo;
+mototierra mimotodetierra;
 
 Scanner read = new Scanner(System.in);
 
@@ -231,7 +248,41 @@ System.out.println("matricula");
 
     System.out.println("precio");
         precio = read.next();
+        
+    System.out.println("cilindrada");
+        cilindrada = read.next();
+        
+    System.out.println("tipo");
+        tipo = read.next();
+        
+        vehiculos.add(mimotodetierra = new mototierra(matricula,propietario,marca,cilindrada,precio,tipo));
 }
+
+public void mostrartodo()
+{
+for (int i=0;i<vehiculos.size();i++)
+    {
+        System.out.println(vehiculos.get(i).tostring());
+    }
+}
+
+public void guardardatos()
+{
+try
+{
+  
+ FileOutputStream agenda = new FileOutputStream("vehiculos.txt");
+ ObjectOutputStream ag = new ObjectOutputStream(agenda);
+ ag.writeObject(vehiculos);
+}
+
+catch (Exception e) {System.out.println("error");}
+
+}
+
+
+
+
 
 }
 

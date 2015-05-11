@@ -22,4 +22,13 @@ super.cilindrada=cilindrada;
 this.tipo=tipo;
 }
 
+ public String tostring()
+{
+
+System.out.println("/N");
+
+return "nº de matricula :"+matricula+" el propietario es :"+propietario+" la marca es :"+marca+" el precio es :"+precio+" su cilindrada es de :"+cilindrada+" tipo de moto :"+tipo;
+
+}
+
 }

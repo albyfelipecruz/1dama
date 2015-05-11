@@ -29,8 +29,9 @@ this.precio=precio;
 public String tostring()
 {
 
+System.out.println("/N");
 
-return matricula+propietario+marca+precio;
+return "nº de matricula :"+matricula+"el propietario es :"+propietario+"la marca es :"+marca+"el precio es :"+precio;
 
 }
 
